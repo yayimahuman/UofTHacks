@@ -1,0 +1,38 @@
+*{
+    color:white;
+}
+#map {
+    height: 100%;
+    width: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+
+#menu {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+#blur{
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.form-control {
+    width:100%;
+}
+
+.col-sm-12 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.form-group {
+    margin:30px;
+}
+input {
+    height:60px;
+}
