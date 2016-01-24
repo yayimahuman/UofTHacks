@@ -88,14 +88,6 @@ $( "#origin" ).focus(function() {
 $( "#destination" ).focus(function() {
     //add fancy stuff
 });
-$( "#initial-form" ).submit(function() {
-    var origin = $('#origin').val(function(){
-        var destination = $('#destination').val(function(){
-            $("#menu").remove();//make sure values are collected before removal
-        });
-    });
-    //add logic here to dfault to current location when field is blank
-});
 
 
 jQuery(document).ready(function () {
@@ -117,6 +109,83 @@ jQuery(document).ready(function () {
     });
 
 });
+
+
+$( "#initial-form" ).submit(function() {
+    var origin = $('#origin').val(function(){
+        var destination = $('#destination').val(function(){
+            $("#menu").remove();//make sure values are collected before removal
+
+        });
+    });
+    //add logic here to dfault to current location when field is blank
+    submit();
+});
+
+function submit(){
+    //sidd's code
+    //var origin = new google.maps.LatLng(55.930385, -3.118425),
+    var origin = "Toronto, ON",
+        destination = "Pickering, ON",
+        service = new google.maps.DistanceMatrixService();
+
+    service.getDistanceMatrix(
+        {
+            origins: [origin],
+            destinations: [destination],
+            travelMode: google.maps.TravelMode.DRIVING,
+            avoidHighways: false,
+            avoidTolls: false
+        },
+        callback
+    );
+
+    function callback(response, status) {
+        var orig = document.getElementById("orig"),
+            dest = document.getElementById("dest"),
+            dist = document.getElementById("dist"),
+    		price = document.getElementById("price");
+        if(status=="OK") {
+            orig.value = response.destinationAddresses[0];
+            dest.value = response.originAddresses[0];
+            dist.value = response.rows[0].elements[0].distance.text;
+            var totdist = dist.value.slice(0, dist.value.length-3);
+            totdist = parseFloat(dist.value);
+
+           //dist.value = 9;
+            var a = totdist/1.6;
+            var mileage = 24;
+            var befgal = a/mileage;
+            var liters = befgal*3.78541;
+            var p = liters *0.95;
+            var sum = 0;
+            var deci = false;
+            /*if(dist.value[i] >= 0 && dist.value[i] <= 9){
+            			sum += 1;
+            	}*/
+            /*for(var i = (dist.value.length-1); i >= 0; i--){
+            	if(dist.value[i] == 'k' || dist.value[i] == 'm'){
+            		dist = dist.value.slice(0, dist.value.length-2);
+            	}
+            	if(dist.value[i] == '.'){
+            		counter = true;
+            	}
+            }*/
+
+            /*for(var i = (dist.value.length-1); i >= 0; i--){
+            	if(dist.value[i] == '.'){
+            		counter = true;
+            	}
+            }*/
+            price.value = p.toFixed(2);;//dist.value.length;
+
+        } else {
+            alert("Error: " + status);
+        }
+    }
+}
+
+
 </script>
 </body>
 
