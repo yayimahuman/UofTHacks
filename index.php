@@ -112,7 +112,12 @@ $( "#destination" ).focus(function() {
 });
 
 $( "#initial-form" ).submit(function() {
-    $("#menu").remove();
+    var origin = $('#origin').val();
+    var destination = $('#destination').val(function{
+        $("#menu").remove();//make sure values are collected before removal
+    });
+
+    //add logic here to dfault to current location when field is blank
 });
 
 
