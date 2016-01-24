@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +10,6 @@
     <meta name="author" content="">
 
     <title>Le website</title>
-
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
@@ -33,7 +33,7 @@
             <h1>Accounted Itinerant</h1>
             <p>Compare the costs of getting to your destination</p>
             <br>
-            <form id="initial-form" class="form-horizontal" role="form">
+            <form id="initial-form" class="form-horizontal" role="form" method="get" >
 
                 <div id="form-group-1" class="form-group">
                     <div class="col-sm-6 col-sm-offset-3 input-group input-group-lg">
@@ -48,12 +48,12 @@
                 <div class="clearfix"></div>
 
                 <div id="form-group-2" class="form-group">
-                    <!--<label class="control-label col-sm-2 col-sm-offset-1" for="destination">Destination:</label>-->
+
                     <div class="col-sm-6 col-sm-offset-3 input-group input-group-lg">
 
                         <span class="input-group-addon" id="basic-addon2"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></span>
 
-                        <input type="text" class="form-control" id="destination" placeholder="Enter your destination, or leave this blank for your current location" aria-describedby="basic-addon2">
+                        <input type="text" class="form-control" id="destination" placeholder="Enter your destination" aria-describedby="basic-addon2">
 
                     </div>
                 </div>
@@ -71,7 +71,57 @@
         </div>
     </div>
 
-    <!-- jQuery library -->
+
+
+
+
+
+    <!--Kanav here's where you edit-->
+    <div class="col-sm-4">
+
+        <form role="form" method="get" style="padding:none;">
+            <div class="top-half">
+                <div class="form-group">
+                    <label  class="pull-left" for="origin">Origin:</label>
+                    <input id="orig" class="form-control" type="text" placeholder="Origin">
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="form-group form-group-2">
+                    <label class="pull-left" for="destination">Destination:</label>
+                    <input id="dest" class="form-control" type="text" placeholder="Destination">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="clearfix"></div>
+    <div class="col-sm-4">
+        <form role="form" method="get" style="padding:none;">
+            <div class="form-group form-group-2">
+                <label class="pull-left" for="distance">Distance:</label>
+                <input id="dist" class="form-control" type="text" placeholder="Distance" disabled>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="form-group form-group-2">
+                <label  class="pull-left" for="price">Cost:</label>
+                <input id="price" class="form-control" type="text" placeholder="Cost" disabled>
+            </div>
+        </form>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
     <!-- Latest compiled JavaScript -->
@@ -82,64 +132,65 @@
 
 
 <script>
-$( "#origin" ).focus(function() {
+var origin, destination;
+/*$( "#origin" ).focus(function() {
     //add fancy stuff
 });
 $( "#destination" ).focus(function() {
     //add fancy stuff
-});
-
-
+});*/
 jQuery(document).ready(function () {
     var map;
-
     var style =
 [{"elementType":"geometry","stylers":[{"hue":"#ff4400"},{"saturation":-68},{"lightness":-4},{"gamma":0.72}]},{"featureType":"road","elementType":"labels.icon"},{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"hue":"#0077ff"},{"gamma":3.1}]},{"featureType":"water","stylers":[{"hue":"#00ccff"},{"gamma":0.44},{"saturation":-33}]},{"featureType":"poi.park","stylers":[{"hue":"#44ff00"},{"saturation":-23}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"hue":"#007fff"},{"gamma":0.77},{"saturation":65},{"lightness":99}]},{"featureType":"water","elementType":"labels.text.stroke","stylers":[{"gamma":0.11},{"weight":5.6},{"saturation":99},{"hue":"#0091ff"},{"lightness":-86}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"lightness":-48},{"hue":"#ff5e00"},{"gamma":1.2},{"saturation":-23}]},{"featureType":"transit","elementType":"labels.text.stroke","stylers":[{"saturation":-64},{"hue":"#ff9100"},{"lightness":16},{"gamma":0.47},{"weight":2.7}]}]
-
     var options = {
         zoom: 11,
         center:  new google.maps.LatLng(43.7000, -79.4000),
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         disableDefaultUI: true
     };
-
     map = new google.maps.Map($('#map')[0], options);
     map.setOptions({
         styles: style
     });
-
 });
 
+$("#form-group-3 button").on("click",function(){
+	submit();
+});
+/*$('#initial-form').submit(function(event) {
 
-$( "#initial-form" ).submit(function() {
-    var origin = $('#origin').val(function(){
-        var destination = $('#destination').val(function(){
-            $("#menu").remove();//make sure values are collected before removal
-
+    origin = $('#origin').val(function(){
+        destination = $('#destination').val(function(){
+           //make sure values are collected before removal
         });
     });
+    console.log("origin: " + origin);
     //add logic here to dfault to current location when field is blank
-    submit();
-});
-
+    //submit();
+});*/
 function submit(){
-    //sidd's code
+event.preventDefault();
+console.log("hello");
+	origin = $("input#origin").val();
+	destination = $("input#destination").val();
+	$('#menu').remove();
+	console.log("origin is " + origin +  " and destination is " + destination);
+		    //sidd's code
     //var origin = new google.maps.LatLng(55.930385, -3.118425),
-    var origin = "Toronto, ON",
-        destination = "Pickering, ON",
+    //var origin = "Toronto, ON",
+        //destination = "Pickering, ON",
         service = new google.maps.DistanceMatrixService();
-
     service.getDistanceMatrix(
         {
-            origins: [origin],
-            destinations: [destination],
+            origins: [destination],
+            destinations: [origin],
             travelMode: google.maps.TravelMode.DRIVING,
             avoidHighways: false,
             avoidTolls: false
         },
         callback
     );
-
     function callback(response, status) {
         var orig = document.getElementById("orig"),
             dest = document.getElementById("dest"),
@@ -151,7 +202,6 @@ function submit(){
             dist.value = response.rows[0].elements[0].distance.text;
             var totdist = dist.value.slice(0, dist.value.length-3);
             totdist = parseFloat(dist.value);
-
            //dist.value = 9;
             var a = totdist/1.6;
             var mileage = 24;
@@ -160,33 +210,16 @@ function submit(){
             var p = liters *0.95;
             var sum = 0;
             var deci = false;
-            /*if(dist.value[i] >= 0 && dist.value[i] <= 9){
-            			sum += 1;
-            	}*/
-            /*for(var i = (dist.value.length-1); i >= 0; i--){
-            	if(dist.value[i] == 'k' || dist.value[i] == 'm'){
-            		dist = dist.value.slice(0, dist.value.length-2);
-            	}
-            	if(dist.value[i] == '.'){
-            		counter = true;
-            	}
-            }*/
 
-            /*for(var i = (dist.value.length-1); i >= 0; i--){
-            	if(dist.value[i] == '.'){
-            		counter = true;
-            	}
-            }*/
-            price.value = p.toFixed(2);;//dist.value.length;
-
+            price.value = p.toFixed(2);//dist.value.length;
         } else {
             alert("Error: " + status);
         }
     }
+    console.log("hello");
 }
-
-
 </script>
+
 </body>
 
 </html>
