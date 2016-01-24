@@ -16,6 +16,9 @@ h1 {
         font-size: 25px;
     }
 }
+html,body{
+    height:100%;
+}
 #map {
     height: 100%;
     width: 100%;
@@ -31,10 +34,12 @@ h1 {
     width: 100%;
     background: url(backgroundpic.png) no-repeat bottom center scroll;
     background-color: #000;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    z-index: 2;
+
 }
 #blur{
     //background-color: rgba(0,0,0,0.5);
@@ -51,6 +56,9 @@ h1 {
     top: 50%;
     transform: translateY(-50%);
     background-color: rgba(0,0,0,0.7);
+}
+.form-group-2 {
+    margin:none;
 }
 .form-group {
     margin:12px;
@@ -69,4 +77,11 @@ h1 {
 .form-horizontal .form-group .form-control:-ms-input-placeholder {
     text-align: center;
     color:#404040;
+}
+.col-sm-4{
+    background: rgba(140,120,115,0.8);
+    height:100%;
+    width:300px;
+    text-align: left;
+    padding:none;
 }
