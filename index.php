@@ -32,7 +32,7 @@
 </head>
 
 <body id="page-top" data-spy="scroll">
-    <div id="blur"></div>
+
     <div id="map"></div>
     <div id="menu">
 
@@ -43,7 +43,7 @@
             <h1>Accounted Itinerant</h1>
             <p>Compare the costs of getting to your destination</p>
             <br>
-            <form class="form-horizontal" role="form">
+            <form id="initial-form" class="form-horizontal" role="form">
 
                 <div id="form-group-1" class="form-group">
                     <!--<label class="control-label col-sm-2 col-sm-offset-1" for="origin"><i class="fa fa-map-marker"></i></label>-->
@@ -71,7 +71,19 @@
                     </div>
                 </div>
 
+
                 <div class="clearfix"></div>
+
+                <div id="form-group-3" class="form-group" style="text-align:center">
+                    <!--<label class="control-label col-sm-2 col-sm-offset-1" for="destination">Destination:</label>-->
+
+                    <button type="submit" class="btn btn-default btn-lg">Submit</button>
+
+
+
+
+                    </div>
+                </div>
 
             </form>
 
@@ -90,19 +102,17 @@
 <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
 
-<!-- Custom Theme JavaScript -->
-<script src="js/grayscale.js"></script>
 
 <script>
 $( "#origin" ).focus(function() {
 
-
-
 });
 $( "#destination" ).focus(function() {
 
- 
+});
 
+$( "#initial-form" ).submit(function() {
+    $("#menu").remove();
 });
 
 
