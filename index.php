@@ -12,15 +12,15 @@
     <title>Le website</title>
 
     <!-- Bootstrap Core CSS -->
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
     <link href="lmao.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,35 +39,39 @@
 
 
         <div class="col-sm-12">
-            <form class="myForm" role="form" style="vertical-align:center">
 
-                <div class="form-group">
-                    <div class="col-sm-2" style="text-align:right">
-                        <label for="origin">Origin:</label>
-                    </div>
-                    <div class="col-sm-8">
-                        <input type="origin" class="form-control" id="origin" placeholder="placeholder 1">
-                    </div>
-                </div>
+            <h1>Accounted Itinerant</h1>
+            <p>Compare the costs of getting to your destination</p>
+            <br>
+            <form class="form-horizontal" role="form">
 
-                <div class="clearfix"></div>
+                <div id="form-group-1" class="form-group">
+                    <!--<label class="control-label col-sm-2 col-sm-offset-1" for="origin"><i class="fa fa-map-marker"></i></label>-->
+                    <div class="col-sm-6 col-sm-offset-3 input-group input-group-lg">
+                        <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-record" aria-hidden="true"></span></span>
 
-                <div class="form-group">
-                    <div class="col-sm-2" style="text-align:right">
-                        <label for="destination">Destination:</label>
-                    </div>
-                    <div class="col-sm-8">
-                        <input type="destination" class="form-control" id="destination" placeholder="placeholder 2">
+                        <input type="text" class="form-control" id="origin" placeholder="Enter your starting point, or leave this blank for current location" aria-describedby="basic-addon1">
+
+
+
                     </div>
                 </div>
 
                 <div class="clearfix"></div>
 
-                <div class="form-group">
-                    <div class="col-sm-2 col-sm-offset-2">
-                        <button type="submit" class="btn btn-default">Submit</button>
+                <div id="form-group-2" class="form-group">
+                    <!--<label class="control-label col-sm-2 col-sm-offset-1" for="destination">Destination:</label>-->
+                    <div class="col-sm-6 col-sm-offset-3 input-group input-group-lg">
+                        <span class="input-group-addon" id="basic-addon2"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></span>
+
+                        <input type="text" class="form-control" id="destination" placeholder="Enter your destination, or leave this blank for your current location" aria-describedby="basic-addon2">
+
+
+
                     </div>
                 </div>
+
+                <div class="clearfix"></div>
 
             </form>
 
@@ -83,12 +87,26 @@
     <!-- Latest compiled JavaScript -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+<!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
 
-
+<!-- Custom Theme JavaScript -->
+<script src="js/grayscale.js"></script>
 
 <script>
+$( "#origin" ).focus(function() {
+
+
+
+});
+$( "#destination" ).focus(function() {
+
+ 
+
+});
+
+
+
 jQuery(document).ready(function () {
     var map;
 
