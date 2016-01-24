@@ -1,5 +1,19 @@
 *{
     color:white;
+    font-family: "Lato",sans-serif;
+    text-align: center;
+}
+h1 {
+    text-align: center;
+    margin-top:35px;
+}
+@media (min-width:768px){
+    h1{
+        font-size: 60px;
+    }
+    p{
+        font-size: 25px;
+    }
 }
 #map {
     height: 100%;
@@ -16,7 +30,7 @@
     width: 100%;
 }
 #blur{
-    background-color: rgba(0,0,0,0.5);
+    //background-color: rgba(0,0,0,0.5);
     position: absolute;
     width: 100%;
     height: 100%;
@@ -29,10 +43,23 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.7);
 }
 .form-group {
-    margin:30px;
+    margin:12px;
 }
-input {
-    height:60px;
+.glyphicon {
+    color:black;
+    font-size: 19px;
+}
+.form-horizontal{
+    margin-bottom: 50px;
+}
+.form-horizontal .form-group .form-control::-webkit-input-placeholder {
+ text-align: center;
+ color:#404040;
+}
+.form-horizontal .form-group .form-control:-ms-input-placeholder {
+    text-align: center;
+    color:#404040;
 }
