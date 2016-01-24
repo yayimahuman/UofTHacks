@@ -29,6 +29,12 @@ h1 {
     position: absolute;
     height: 100%;
     width: 100%;
+    background: url(backgroundpic.png) no-repeat bottom center scroll;
+    background-color: #000;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
 }
 #blur{
     //background-color: rgba(0,0,0,0.5);
